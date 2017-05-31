@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #info {
+            font-size: 12px;
+            color: red;
+        }             
+    </style>
+</head>
+<body>
+    <textarea class="wtbt" name="" id="" cols="30" rows="10" onkeyup=showlength(this,50,"alr","nalr")></textarea>
+    <span><span id="alr">0</span>/<span id="nalr">50</span></span>
+    <p id="info"></p>
+<script>
+
+
+    /**
+     * 该方法主要用于检测输入框输入字数，并根据限制字数进行输入字数提示
+     * @param obj 需要限制输入字数的输入框
+     * @param maxlength 输入字数限制
+     * @param id1 已输入字数
+     * @param id2 可输入字数
+     */
+function showlength(obj,maxlength,id1,id2){
+    var alr = maxlength-obj.value.length;
+    var wid1 = id1,wid2 = id2;
+    var nalr = obj.value.length;
+    if(alr<0){
+        alr = 0;
+    }
+    if(nalr > maxlength ){
+        document.getElementById("info").innerHTML = "注意：已超出输入字数范围，最大输入"+maxlength+"个文字";
+    }
+    document.getElementById(wid1).innerHTML = nalr;
+    document.getElementById(wid2).innerHTML = alr;
+}
+</script>
+</body>
+</html>
